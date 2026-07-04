@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Kayıt Sistemi</title>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>📚 Öğrenci Kayıt Sistemi</h1>
+
+        <div class="card">
+
+            <input type="text" id="ad" placeholder="Ad Soyad">
+
+            <input type="text" id="numara" placeholder="Öğrenci Numarası">
+
+            <div class="buttons">
+
+                <button id="ekleBtn">Ekle</button>
+
+                <button id="iptalBtn" style="display:none;">İptal</button>
+
+            </div>
+
+        </div>
+
+        <input type="text" id="arama" placeholder="Öğrenci Ara...">
+
+        <p id="sayac">Toplam Öğrenci : 0</p>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Ad Soyad</th>
+
+                    <th>Numara</th>
+
+                    <th>İşlemler</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="liste">
+
+            </tbody>
+
+        </table>
+
+        <p id="bosMesaj">
+            Henüz kayıtlı öğrenci bulunmuyor.
+        </p>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
