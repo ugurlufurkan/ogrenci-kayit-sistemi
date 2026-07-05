@@ -82,3 +82,31 @@ th,td{
 tr:nth-child(even){
     background:#f7f7f7;
 }
+.sil{
+    background:#dc3545;
+}
+
+.sil:hover{
+    background:#bb2d3b;
+}
+
+.duzenle{
+    background:#198754;
+    margin-right:5px;
+}
+
+.duzenle:hover{
+    background:#157347;
+}
+
+#sayac{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+#bosMesaj{
+    text-align:center;
+    margin-top:20px;
+    color:#777;
+    display:none;
+}
