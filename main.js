@@ -117,3 +117,13 @@ iptalBtn.addEventListener("click", () => {
     ekleBtn.textContent = "Ekle";
     iptalBtn.style.display = "none";
 });
+arama.addEventListener("keyup", () => {
+    const kelime = arama.value.toLowerCase();
+
+    const filtre = ogrenciler.filter(x =>
+        x.ad.toLowerCase().includes(kelime) ||
+        x.no.includes(kelime)
+    );
+
+    render(filtre);
+});
