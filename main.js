@@ -43,3 +43,51 @@ function render(veri = ogrenciler) {
 }
 
 render();
+ekleBtn.addEventListener("click", () => {
+    const isim = ad.value.trim();
+    const no = numara.value.trim();
+
+    if (isim === "" || no === "") {
+        alert("Lütfen tüm alanları doldurun.");
+        return;
+    }
+
+    if (!/^[A-Za-zÇĞİÖŞÜçğıöşü\s]+$/.test(isim)) {
+        alert("Ad kısmına sadece harf girilebilir.");
+        return;
+    }
+
+    if (!/^\d+$/.test(no)) {
+        alert("Öğrenci numarası sadece rakamlardan oluşmalıdır.");
+        return;
+    }
+
+    const ayniNumara = ogrenciler.findIndex(x => x.no === no);
+
+    if (ayniNumara !== -1 && ayniNumara !== duzenlenenIndex) {
+        alert("Bu öğrenci numarası zaten kayıtlı.");
+        return;
+    }
+
+    if (duzenlenenIndex === -1) {
+        ogrenciler.push({
+            ad: isim,
+            no: no
+        });
+    } else {
+        ogrenciler[duzenlenenIndex] = {
+            ad: isim,
+            no: no
+        };
+
+        duzenlenenIndex = -1;
+        ekleBtn.textContent = "Ekle";
+        iptalBtn.style.display = "none";
+    }
+
+    kaydet();
+    render();
+
+    ad.value = "";
+    numara.value = "";
+});
