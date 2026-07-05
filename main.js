@@ -10,7 +10,6 @@ const sayac = document.getElementById("sayac");
 const bosMesaj = document.getElementById("bosMesaj");
 
 let duzenlenenIndex = -1;
-
 function kaydet() {
     localStorage.setItem("ogrenciler", JSON.stringify(ogrenciler));
 }
@@ -20,7 +19,6 @@ function guncelleSayac() {
 }
 
 function render(veri = ogrenciler) {
-
     liste.innerHTML = "";
 
     if (veri.length === 0) {
@@ -30,39 +28,22 @@ function render(veri = ogrenciler) {
     }
 
     veri.forEach((ogrenci, index) => {
-
         liste.innerHTML += `
         <tr>
-
             <td>${ogrenci.ad}</td>
-
             <td>${ogrenci.no}</td>
-
             <td>
-
-                <button class="duzenle" onclick="duzenle(${index})">
-                Düzenle
-                </button>
-
-                <button class="sil" onclick="sil(${index})">
-                Sil
-                </button>
-
+                <button class="duzenle" onclick="duzenle(${index})">Düzenle</button>
+                <button class="sil" onclick="sil(${index})">Sil</button>
             </td>
-
-        </tr>
-        `;
-
+        </tr>`;
     });
 
     guncelleSayac();
-
 }
 
 render();
-
 ekleBtn.addEventListener("click", () => {
-
     const isim = ad.value.trim();
     const no = numara.value.trim();
 
@@ -89,14 +70,11 @@ ekleBtn.addEventListener("click", () => {
     }
 
     if (duzenlenenIndex === -1) {
-
         ogrenciler.push({
             ad: isim,
             no: no
         });
-
     } else {
-
         ogrenciler[duzenlenenIndex] = {
             ad: isim,
             no: no
@@ -112,51 +90,34 @@ ekleBtn.addEventListener("click", () => {
 
     ad.value = "";
     numara.value = "";
-
 });
-
 function sil(index) {
-
     if (confirm("Bu öğrenci silinsin mi?")) {
-
         ogrenciler.splice(index, 1);
-
         kaydet();
-
         render();
-
     }
-
 }
-
 function duzenle(index) {
-
     ad.value = ogrenciler[index].ad;
     numara.value = ogrenciler[index].no;
 
     duzenlenenIndex = index;
 
     ekleBtn.textContent = "Güncelle";
-
     iptalBtn.style.display = "inline-block";
-
 }
 
 iptalBtn.addEventListener("click", () => {
-
     duzenlenenIndex = -1;
 
     ad.value = "";
     numara.value = "";
 
     ekleBtn.textContent = "Ekle";
-
     iptalBtn.style.display = "none";
-
 });
-
 arama.addEventListener("keyup", () => {
-
     const kelime = arama.value.toLowerCase();
 
     const filtre = ogrenciler.filter(x =>
@@ -165,5 +126,4 @@ arama.addEventListener("keyup", () => {
     );
 
     render(filtre);
-
 });
