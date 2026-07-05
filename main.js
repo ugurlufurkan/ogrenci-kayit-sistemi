@@ -91,3 +91,10 @@ ekleBtn.addEventListener("click", () => {
     ad.value = "";
     numara.value = "";
 });
+function sil(index) {
+    if (confirm("Bu öğrenci silinsin mi?")) {
+        ogrenciler.splice(index, 1);
+        kaydet();
+        render();
+    }
+}
