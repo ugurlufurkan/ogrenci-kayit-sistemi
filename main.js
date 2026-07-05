@@ -98,3 +98,22 @@ function sil(index) {
         render();
     }
 }
+function duzenle(index) {
+    ad.value = ogrenciler[index].ad;
+    numara.value = ogrenciler[index].no;
+
+    duzenlenenIndex = index;
+
+    ekleBtn.textContent = "Güncelle";
+    iptalBtn.style.display = "inline-block";
+}
+
+iptalBtn.addEventListener("click", () => {
+    duzenlenenIndex = -1;
+
+    ad.value = "";
+    numara.value = "";
+
+    ekleBtn.textContent = "Ekle";
+    iptalBtn.style.display = "none";
+});
